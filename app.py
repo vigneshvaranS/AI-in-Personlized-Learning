@@ -400,8 +400,8 @@ st.markdown("---")
 st.markdown(
     """
     <div style="text-align: center; color: grey;">
-        Built with Streamlit, OpenRouter, and Serper Dev | 
-        <a href="https://streamlit.io" target="_blank">Streamlit Docs</a>
+        Developed by | 
+        <a href="https://www.linkedin.com/in/vignesh-s-9b86a7243/" target="_blank">Vignesh S</a>
     </div>
     """, unsafe_allow_html=True
 )
