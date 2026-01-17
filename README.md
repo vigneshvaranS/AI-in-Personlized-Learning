@@ -6,6 +6,8 @@ The system combines **classical Machine Learning**, **real-time web search**, an
 
 This project was developed as part of my **Minor Degree in Artificial Intelligence**, following proper ML workflow and evaluation practices.
 
+WebApp Url =    [https://ai-in-personlized-learning.streamlit.app/](https://ai-in-personlized-learning.streamlit.app/)
+
 ---
 
 ## 🚀 Project Overview
