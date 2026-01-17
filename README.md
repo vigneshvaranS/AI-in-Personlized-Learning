@@ -1,7 +1,3 @@
-Below is a **complete GitHub README.md** that you can **directly copy–paste**.
-It is written in a **human style**, slightly informal, not over-polished, and fits your **minor AI project expectations** perfectly.
-
----
 
 # 🎓 Personalized Learning Assistant using Machine Learning & Generative AI
 
@@ -222,22 +218,5 @@ Through this project, I learned:
 AI & Machine Learning Enthusiast
 
 LinkedIn: [https://www.linkedin.com/in/vignesh-s-9b86a7243/](https://www.linkedin.com/in/vignesh-s-9b86a7243/)
-
----
-
-## 📌 Note
-
-This project intentionally avoids blindly using deep learning.
-Model choice was based on **data characteristics and performance**, not complexity.
-
-That was a conscious and correct decision.
-
----
-
-If you want, I can also:
-
-* Rewrite this for **academic submission**
-* Shorten it for **resume GitHub**
-* Prepare **viva questions & answers**
 
 Just tell me 👍
