@@ -1,107 +1,243 @@
-
-# 📚 Personalized Learning Assistant
-
-An interactive AI-powered web app built with **Streamlit** that provides customized learning recommendations and topic explanations based on your preferred learning style and knowledge level.
-
-![App Screenshot](https://user-images.githubusercontent.com/placeholder/image.png)
+Below is a **complete GitHub README.md** that you can **directly copy–paste**.
+It is written in a **human style**, slightly informal, not over-polished, and fits your **minor AI project expectations** perfectly.
 
 ---
 
-## 🚀 Features
+# 🎓 Personalized Learning Assistant using Machine Learning & Generative AI
 
-* 🔍 **Personalized Content**: Get tailored explanations and curated resources for any topic.
-* 🎨 **Learning Styles**: Choose your preferred style — visual, auditory, kinesthetic, reading/writing, or mixed.
-* 📈 **Difficulty Levels**: Beginner, Intermediate, or Advanced.
-* 🖼️ **Inspiring Images**: Automatically fetches topic-relevant images from Pexels.
-* 📜 **Learning History**: View and revisit your past topic explorations.
-* 🧠 **Powered by LLMs**: Uses DeepSeek Chat via OpenRouter API.
+This project is an **AI-powered Personalized Learning Assistant** that adapts learning content based on a learner’s difficulty level.
+The system combines **classical Machine Learning**, **real-time web search**, and **Generative AI** to create a complete end-to-end personalized learning experience.
+
+This project was developed as part of my **Minor Degree in Artificial Intelligence**, following proper ML workflow and evaluation practices.
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Project Overview
 
-* **Frontend**: Streamlit
-* **APIs**:
+Traditional learning systems provide the same content to everyone. However, learners differ in pace, understanding, and effort.
+This project aims to solve that problem by:
 
-  * OpenRouter AI (for language model responses)
-  * Pexels (for fetching topic-related images)
-* **Language**: Python
+* Predicting **learner difficulty level** using a trained ML model
+* Adapting explanations and study plans accordingly
+* Recommending relevant learning resources
+* Providing an AI tutor and quiz generation feature
+
+The system works fully end-to-end and demonstrates **real ML usage**, not just API calls.
 
 ---
 
-## ⚙️ Setup Instructions
+## 🧠 Core Idea
 
-### 1. Clone the repository
+The application predicts whether a learner is likely to find a topic:
 
-```bash
+* Easy
+* Medium
+* Hard
+
+based on simple learning signals like:
+
+* Expected quiz score
+* Time spent learning
+* Number of attempts to understand a topic
+
+Using this prediction, the system generates a **custom learning plan**.
+
+---
+
+## 🛠️ Technologies Used
+
+### Machine Learning
+
+* Logistic Regression (baseline model)
+* Random Forest Classifier (final selected model)
+* Neural Network (experimented)
+
+### Libraries
+
+* scikit-learn
+* numpy
+* joblib
+
+### Generative AI
+
+* OpenRouter API
+* Model: `meta-llama/llama-3.3-70b-instruct`
+
+### Web & UI
+
+* Streamlit
+* Requests
+* Pexels API (images)
+* Serper.dev (Google Search API)
+
+---
+
+## 📊 Model Training Summary
+
+Three models were trained and evaluated:
+
+| Model               | Purpose        | Result                |
+| ------------------- | -------------- | --------------------- |
+| Logistic Regression | Baseline       | Good accuracy         |
+| Random Forest       | Ensemble model | **Best accuracy**     |
+| Neural Network      | Deep model     | Did not outperform RF |
+
+**Final Model Selected:** Random Forest
+Reason: Higher accuracy, better generalization on tabular data, and stable performance.
+
+This follows standard ML best practices:
+start simple → experiment → compare → select best model.
+
+---
+
+## 🧩 Features
+
+### ✅ Difficulty Prediction (ML-based)
+
+Predicts learner difficulty using trained Random Forest model.
+
+### 📘 Personalized Study Guide
+
+Generates explanations tailored to:
+
+* Difficulty level
+* Learning style
+* Explanation depth
+
+### 🔗 Resource Recommendations
+
+Fetches and displays learning resources using real Google search results.
+
+### 💬 AI Tutor
+
+Chat-based tutor for follow-up questions on the topic.
+
+### 🧠 Quiz Generator
+
+Generates short quizzes to test understanding.
+
+### 📜 Learning History
+
+Previously generated learning plans can be revisited from the sidebar.
+
+---
+
+## 🏗️ Project Structure
+
+```
+.
+├── app.py
+├── saved_models/
+│   ├── random_forest_model.pkl
+│   ├── scaler.pkl
+│   └── label_encoder.pkl
+├── notebooks/
+│   ├── data_preprocessing.ipynb
+│   ├── logistic_regression.ipynb
+│   ├── random_forest.ipynb
+│   └── neural_network.ipynb
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## ▶️ How to Run the Project
+
+### 1. Clone the Repository
+
+```
 git clone https://github.com/your-username/personalized-learning-assistant.git
 cd personalized-learning-assistant
 ```
 
-### 2. Install dependencies
+### 2. Install Dependencies
 
-Make sure you have Python 3.8+ installed.
-
-```bash
+```
 pip install -r requirements.txt
 ```
 
-### 3. Set up your API keys
+### 3. Add API Keys
 
-Create a `.streamlit/secrets.toml` file and add your keys:
+Create `.streamlit/secrets.toml`
 
-```toml
-OPENROUTER_API_KEY = "your-openrouter-api-key"
-PEXELS_API_KEY = "your-pexels-api-key"
+```
+OPENROUTER_API_KEY = "your_openrouter_key"
+PEXELS_API_KEY = "your_pexels_key"
+SERPER_API_KEY = "your_serper_key"
 ```
 
-If `.streamlit` doesn't exist, create the directory manually.
+### 4. Run the App
 
-### 4. Run the app
-
-```bash
+```
 streamlit run app.py
 ```
 
 ---
 
-## 📂 File Structure
+## 🧪 Dataset
 
-```
-├── app.py                   # Main Streamlit app
-├── requirements.txt         # Python dependencies
-├── .streamlit/
-│   └── secrets.toml         # API keys (user-provided)
-├── test1.png                # Sidebar image
-└── README.md                # Project documentation
-```
+A synthetic dataset was created to simulate learner behavior with features such as:
 
----
+* Quiz score
+* Time spent
+* Attempts
 
-## 🧪 Example Prompt
-
-> Topic: **Linear Algebra**
-> Learning Style: **Visual**
-> Difficulty: **Beginner**
-
-The app generates:
-
-* A simple explanation of linear algebra.
-* Curated videos, articles, or tools for visual learners.
-* Topic image fetched from Pexels.
+This dataset was cleaned, scaled, and used to train multiple models.
 
 ---
 
-## 🧑‍💻 Developer
+## 📈 Evaluation Metrics
 
-Made with ❤️ by **[Vignesh S](https://www.linkedin.com/in/vignesh-s-9b86a7243/)**
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+* Accuracy was used since the dataset is balanced
+* Random Forest achieved the highest accuracy
+* Cross-checking was done using multiple models
 
 ---
 
-Would you also like me to generate a `requirements.txt` for this project?
+## 🎯 Learning Outcomes
+
+Through this project, I learned:
+
+* How to design an end-to-end ML system
+* Importance of baseline models
+* Model comparison and selection
+* Integration of ML with real-world applications
+* Combining ML with Generative AI effectively
+
+---
+
+## 🔮 Future Improvements
+
+* Use real learner interaction logs
+* Add adaptive quizzes based on performance
+* Improve dataset size and diversity
+* Deploy using cloud services
+
+---
+
+## 👤 Author
+
+**Vignesh S**
+AI & Machine Learning Enthusiast
+
+LinkedIn: [https://www.linkedin.com/in/vignesh-s-9b86a7243/](https://www.linkedin.com/in/vignesh-s-9b86a7243/)
+
+---
+
+## 📌 Note
+
+This project intentionally avoids blindly using deep learning.
+Model choice was based on **data characteristics and performance**, not complexity.
+
+That was a conscious and correct decision.
+
+---
+
+If you want, I can also:
+
+* Rewrite this for **academic submission**
+* Shorten it for **resume GitHub**
+* Prepare **viva questions & answers**
+
+Just tell me 👍
