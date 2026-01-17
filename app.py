@@ -47,9 +47,9 @@ MODEL_NAME = "meta-llama/llama-3.3-70b-instruct:free"
 # --------------------------------------------------
 # LOAD ML MODEL
 # --------------------------------------------------
-rf_model = joblib.load("/home/vignesh/Documents/IITR_Personalized_AI_for_Studies/saved_models/random_forest_model.pkl")
-scaler = joblib.load("/home/vignesh/Documents/IITR_Personalized_AI_for_Studies/saved_models/scaler.pkl")
-label_encoder = joblib.load("/home/vignesh/Documents/IITR_Personalized_AI_for_Studies/saved_models/label_encoder.pkl")
+rf_model = joblib.load("saved_models/random_forest_model.pkl")
+scaler = joblib.load("saved_models/scaler.pkl")
+label_encoder = joblib.load("saved_models/label_encoder.pkl")
 
 def predict_difficulty(score, time_spent, attempts):
     x = scaler.transform([[score, time_spent, attempts]])
